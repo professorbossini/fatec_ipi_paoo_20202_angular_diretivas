@@ -6,8 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  textoBotao: string = 'Esconder';
-  esconder: boolean = false;
 
   pessoas = [
     { nome: 'José', idade: 18 },
@@ -15,12 +13,9 @@ export class AppComponent {
     { nome: 'Ana', idade: 30 },
   ];
 
-  adicionar(n: string, i: number) {
-    this.pessoas.push({ nome: n, idade: i });
+
+  onAdicionarPessoa (pessoa){
+    this.pessoas = [pessoa, ...this.pessoas];
   }
 
-  alterarExibicao(): void {
-    this.textoBotao = this.esconder ? 'Exibir' : 'Esconder';
-    this.esconder = !this.esconder;
-  }
 }

@@ -1,36 +1,12 @@
 <div class="container">
+
+  <app-pessoa-cadastro (pessoaAdicionada)="onAdicionarPessoa($event)"></app-pessoa-cadastro>
+
   <div class="row">
 
-    <div class="form-group col-md-6">
-      <label for="nomeInput">Nome</label>
-      <input type="text" class="form-control" id="nomeInput" #nomeInput>
+    <div class="col-4" *ngFor="let p of pessoas">
+      <app-pessoa-cartao [pessoa]="p" ></app-pessoa-cartao>
     </div>
 
-    <div class="form-group col-md-6 mb-2">
-      <label for="idadeInput">Idade</label>
-      <input type="text" class="form-control" id="idadeInput" #idadeInput>
-    </div>
-
-  </div>
-  <div class="row">
-    <table [hidden]="esconder" class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <td>Nome</td>
-          <td>Idade</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let pessoa of pessoas">
-          <td>{{pessoa.nome}}</td>
-          <td>{{pessoa.idade}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="row">
-    <button class="btn btn-primary btn-block mt-3" (click)="adicionar(nomeInput.value, idadeInput.value)">
-      {{textoBotao}}
-    </button>
   </div>
 </div>
